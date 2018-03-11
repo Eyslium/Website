@@ -10,6 +10,6 @@ RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [QSA,L]
 # revokes access to all files starting with .
 RewriteRule (^\.|/\.) - [F]
 
-# forces https
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://eyslium.com/$1 [R,L]
+# forces https // https is not working, disabling for now
+##RewriteCond %{SERVER_PORT} 80
+##RewriteRule ^(.*)$ https://eyslium.com/$1 [R,L]
