@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# removes .html from the end of all URLs, if it's there
+##RewriteCond %{THE_REQUEST} \.html
+##RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [QSA,L]
+
+# revokes access to all files starting with .
+RewriteRule (^\.|/\.) - [F]
+
+# forces https // https is not working, disabling for now
+##RewriteCond %{SERVER_PORT} 80
+##RewriteRule ^(.*)$ https://eyslium.com/$1 [R,L]
